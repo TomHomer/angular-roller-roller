@@ -1,0 +1,14 @@
+<div *ngIf="die">
+  <h2>{{die.desc | uppercase}} Details</h2>
+  <ul class="detail">
+    <li>
+      <span class="badge">{{die.desc}}:</span> <input [(ngModel)]="die.ldesc" placeholder="outcome"/>
+    </li>
+  </ul>
+  <ul class="detail">
+    <li *ngFor="let outcome of die.outcomes">
+      <span class="badge">{{outcome.id}}:</span> 
+      <input [(ngModel)]="outcome.outstring" placeholder="outcome"/>
+    </li>
+  </ul>
+</div>

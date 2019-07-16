@@ -1,0 +1,13 @@
+<div id="left" style="float: left;">
+<h2>My Dice <button (click)="previewText()">GENERATE</button></h2>
+<ul class="dice">
+  <li *ngFor="let die of dice" [class.selected]="die === selectedDie" (click)="onSelect(die)">
+    <span class="badge">{{die.desc}}</span> {{die.ldesc}}
+    <span class="buttons"><button (click)="moveUp(die)">^</button><button (click)="moveDown(die)">v</button></span>
+  </li>
+</ul>
+<app-die-detail [die]="selectedDie"></app-die-detail>
+</div>
+<div id="right" style="float: right">
+
+</div>
