@@ -14,8 +14,10 @@ export class DiceComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
   dice = DICE;
+  name = '';
+  code = ''
 
   selectedDie: Die;
   onSelect(die: Die): void {
@@ -55,6 +57,8 @@ export class DiceComponent implements OnInit {
 
     output += this.generateTracery();
     console.log(output)
+
+    document.getElementById("outhtml").innerText = output;
   }
 
   generateHTML(): string {
@@ -70,8 +74,8 @@ export class DiceComponent implements OnInit {
       })
       out += "</ol>\r\n";
     });
-    out += '<button id="go-button">Click to roll </button>\r\n';
-    out += '<div id="one-roll-result" style="font-style: italic"></div>\r\n';
+    out += '<button id="go-button">Click to roll '+this.name+'</button>\r\n';
+    out += '<p id="one-roll-result" style="font-style: italic"></p>\r\n';
     out += '<script type="text/javascript">\r\n//<![CDATA[\r\n';
     //javascript here
     out += "let tmpstring = '',\r\n";
@@ -105,7 +109,7 @@ export class DiceComponent implements OnInit {
     var out: string;
     var unique: string;
 
-    unique = 'yxz';
+    unique = this.code;
 
     out = 'Put in MAIN:\r\n';
     out += '"|rpg: ';
